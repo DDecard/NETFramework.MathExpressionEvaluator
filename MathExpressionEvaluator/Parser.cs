@@ -57,8 +57,9 @@ namespace MathExpressionEvaluator
         {
             var node = ParsePower();
             
-            while (   _currentToken.Type is TokenType.Multiply 
-                   || _currentToken.Type is TokenType.Divide)
+            while (   _currentToken.Type == TokenType.Multiply 
+                   || _currentToken.Type == TokenType.Divide
+                   || _currentToken.Type == TokenType.Logb)
             {
                 var op = _currentToken.Type;
                 Eat(op);
@@ -107,19 +108,8 @@ namespace MathExpressionEvaluator
             // number
             if (_currentToken.Type == TokenType.Number)
             {
-                var arg = _currentToken.Value;
+                var node = new NumberNode(_currentToken.Value);
                 Eat(TokenType.Number);
-
-                if (_currentToken.Type == TokenType.Comma)
-                {
-                    arg += '.';
-                    Eat(TokenType.Comma);
-                    
-                    arg += _currentToken.Value;
-                    Eat(TokenType.Number);
-                }
-                
-                var node = new NumberNode(arg);
                 
                 return node;
             }

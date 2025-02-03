@@ -36,7 +36,7 @@ namespace MathExpressionEvaluator.Core
             if (_operator == TokenType.Power)
                 return Math.Pow(_left.Evaluate(), _right.Evaluate());
             
-            if (_operator == TokenType.Log)
+            if (_operator == TokenType.Logb)
                 return Math.Log(_left.Evaluate(), _right.Evaluate());
             
             throw new InvalidOperationException("Unknow operator");

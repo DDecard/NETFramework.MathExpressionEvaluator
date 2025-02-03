@@ -12,7 +12,7 @@
         RightParenthesis,   // )
         Identifier,         // function
         Comma,              // ,
-        Log,                // log
+        Logb,                // log base
         EOS,                // end of string
         
     }

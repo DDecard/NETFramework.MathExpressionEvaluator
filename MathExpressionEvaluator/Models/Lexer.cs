@@ -66,7 +66,7 @@ namespace MathExpressionEvaluator.Models
                 return ReadNumber(current);
 
             if (current == 'l' && _input.Substring(_index, 3) == "ogb")
-                return ReadLog();
+                return ReadLogb();
 
             if (char.IsLetter(current))
                 return ReadIdentifier(current);
@@ -74,10 +74,10 @@ namespace MathExpressionEvaluator.Models
             return new Token(TokenType.EOS);
         }
 
-        private Token ReadLog()
+        private Token ReadLogb()
         {
-            _index += 2;
-            return new Token(TokenType.Log, "log");
+            _index += 3;
+            return new Token(TokenType.Logb, "logb");
         }
         
         private Token ReadNumber(char firstChar)
