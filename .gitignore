@@ -1,0 +1,11 @@
+bin/
+obj/
+.git/
+.idea/
+_ReSharper.Caches/
+ConsoleApplication1/
+packages/
+
+*.sln
+*.user
+riderModule.iml
